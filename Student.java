@@ -1,6 +1,5 @@
 import java.util.Date;
-import java.util.*;
-import java.util.Scanner;
+
 /**
  * Class that stores information about the concrete student
  * 
@@ -21,15 +20,46 @@ public class Student implements Comparable {
 	 * fullName = "David Luis";
 	 */
 	private String fullName;
-
+ System.out.println("Please enter a Firstname , MiddleName & Lastname separated by spaces");
+        Scanner sc = new Scanner(System.in);
+        String name = sc.nextLine();
+        System.out.println(name);
+        String[] arr = name.split(" ",3);
+        System.out.println(arr[0].charAt(0)+" "+arr[1].charAt(0)+" "+arr[2]);
 	/**
 	 * student date of birth in "yyyy-MM-dd" format
 	 */
 	private Date birthDate;
 
-	/**
+	 long val = 1346524199000l;
+        Date date=new Date(val);
+        SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy");
+        String dateText = df2.format(date);
+        System.out.println(dateText);
+		
+		/**
 	 * student average mark
 	 */
+
+	 int n, total = 0, percentage;
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter no. of subject:");
+        n = s.nextInt();
+        int marks[] = new int[n];
+        System.out.println("Enter marks out of 100:");
+        for(int i = 0; i < n; i++)
+        {
+            marks[i] = s.nextInt();
+            total = total + marks[i];
+        }
+        percentage = total / n;
+        System.out.println("Sum:"+total);
+        System.out.println("Percentage:"+percentage);
+
+
+
+
+
 	private double avgMark;
 
 	public Student(int id, String fullName, Date birthDate, double avgMark) {
